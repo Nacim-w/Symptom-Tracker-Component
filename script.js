@@ -1,18 +1,27 @@
-function updateClock(city, offset) {
-    const now = new Date();
-    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-    const newTime = new Date(utc + (3600000 * offset));
-    const hours = newTime.getHours().toString().padStart(2, '0');
-    const minutes = newTime.getMinutes().toString().padStart(2, '0');
-    const seconds = newTime.getSeconds().toString().padStart(2, '0');
-    document.getElementById(city + '-time').textContent = `${hours}:${minutes}:${seconds}`;
-  }
-  
-  function updateTime() {
-    updateClock('new-york', -5); // New York (UTC-5)
-    updateClock('london', 0);    // London (UTC+0)
-    updateClock('tokyo', 9);      // Tokyo (UTC+9)
-  }
-  
-  setInterval(updateTime, 1000); // Update every second
-  
+document.addEventListener('DOMContentLoaded', function() {
+  const data = {
+    labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [
+      {
+        label: "Overall Progress",
+        data: [45, 50, 55, 60, 65, 70, 75],
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgba(255, 99, 132, 1)",
+        borderWidth: 1
+      }
+    ]
+  };
+
+  const ctx = document.getElementById('progressChart').getContext('2d');
+  const progressChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+});

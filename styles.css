@@ -1,29 +1,12 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+.dashboard {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
   }
   
-  .clock-container {
-    display: flex;
-  }
-  
-  .clock {
-    text-align: center;
-    margin: 0 20px;
-  }
-  
-  .city {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .time {
-    font-size: 24px;
+  .chart-container {
+    width: 80%;
+    max-width: 800px;
   }
   
