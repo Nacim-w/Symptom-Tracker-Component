@@ -3,55 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Farm Website</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Industry 4.0 Animation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f0f0f0;
+      }
+
+      .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(to right, #4caf50, #2196f3);
+        animation: spin 2s linear infinite;
+      }
+
+      .loader::before,
+      .loader::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #fff;
+      }
+
+      .loader::after {
+        animation: spin-reverse 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin-reverse {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+
+      .icon-container {
+        position: absolute;
+        top: 57%;
+        left: 56.5%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 150px;
+      }
+
+      .icon {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+        animation: icon-fade 4s linear infinite alternate;
+      }
+
+      .icon:nth-child(1) {
+        top: 50px;
+        left: 0;
+      }
+      .icon:nth-child(2) {
+        top: 0;
+        right: 50px;
+      }
+      .icon:nth-child(3) {
+        bottom: 50px;
+        left: 0;
+      }
+      .icon:nth-child(4) {
+        top: 0;
+        left: 50px;
+      }
+
+      .icon img {
+        width: 100%;
+        height: 100%;
+      }
+
+      @keyframes icon-fade {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <h1>Welcome to Our Farm</h1>
-      <nav>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#products">Our Products</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section id="about">
-      <h2>About Us</h2>
-      <p>
-        Welcome to our farm! We are committed to providing fresh, organic
-        produce grown with care.
-      </p>
-    </section>
-
-    <section id="products">
-      <h2>Our Products</h2>
-      <div class="product">
-        <h3>Tomatoes</h3>
-        <img src="1.jpg" alt="Tomatoes" />
-        <p>
-          Our juicy, ripe tomatoes are perfect for salads, sauces, and
-          sandwiches.
-        </p>
-      </div>
-      <div class="product">
-        <h3>Corn</h3>
-        <img src="2.jpeg" alt="Corn" />
-        <p>Sweet and tender, our corn is picked fresh daily.</p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Have questions or want to place an order? Contact us!</p>
-      <p>Email: farm@gmail.com</p>
-      <p>Phone: 12-456-789</p>
-    </section>
-
-    <footer>
-      <p>&copy; 2024 Our Farm. All rights reserved.</p>
-    </footer>
+    <div class="loader"></div>
+    <div class="icon-container">
+      <div class="icon"><img src="1.png" alt="Automation" /></div>
+    </div>
   </body>
 </html>
