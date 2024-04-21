@@ -1,120 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Industry 4.0 Animation</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #f0f0f0;
-      }
-
-      .loader {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        background: linear-gradient(to right, #4caf50, #2196f3);
-        animation: spin 2s linear infinite;
-      }
-
-      .loader::before,
-      .loader::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 3px solid transparent;
-        border-top-color: #fff;
-      }
-
-      .loader::after {
-        animation: spin-reverse 2s linear infinite;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes spin-reverse {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(-360deg);
-        }
-      }
-
-      .icon-container {
-        position: absolute;
-        top: 57%;
-        left: 56.5%;
-        transform: translate(-50%, -50%);
-        width: 150px;
-        height: 150px;
-      }
-
-      .icon {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        opacity: 0;
-        animation: icon-fade 4s linear infinite alternate;
-      }
-
-      .icon:nth-child(1) {
-        top: 50px;
-        left: 0;
-      }
-      .icon:nth-child(2) {
-        top: 0;
-        right: 50px;
-      }
-      .icon:nth-child(3) {
-        bottom: 50px;
-        left: 0;
-      }
-      .icon:nth-child(4) {
-        top: 0;
-        left: 50px;
-      }
-
-      .icon img {
-        width: 100%;
-        height: 100%;
-      }
-
-      @keyframes icon-fade {
-        0% {
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="loader"></div>
-    <div class="icon-container">
-      <div class="icon"><img src="1.png" alt="Automation" /></div>
-    </div>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Symptom Tracker</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="symptom-tracker">
+  <h2>Symptom Tracker</h2>
+  <div class="input-group">
+    <label for="pain-level">Pain Level:</label>
+    <input type="number" id="pain-level" min="0" max="10">
+  </div>
+  <div class="input-group">
+    <label for="fatigue">Fatigue:</label>
+    <input type="number" id="fatigue" min="0" max="10">
+  </div>
+  <div class="input-group">
+    <label for="mood">Mood:</label>
+    <input type="text" id="mood">
+  </div>
+  <div class="input-group">
+    <label for="additional-info">Additional Info:</label>
+    <textarea id="additional-info"></textarea>
+  </div>
+  <button onclick="submitSymptoms()">Submit</button>
+  <div id="symptom-summary"></div>
+</div>
+<script src="script.js"></script>
+</body>
 </html>
